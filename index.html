@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali</title>
+    <link rel="stylesheet" href="css/sytle.css">
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted id="backgroundVideo">
+            <source src="Images/Video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+              
+        <!-- Diwali Text -->
+        <div class="overlay">
+            <h1>HAPPY DIWALI</h1>
+        </div>
+    
+        <!-- New Year Overlay -->
+        <div class="year-background">
+            <h1>2024</h1>
+        </div>
+    
+        <div class="overlay1">
+            <h3>
+                <span class="line1">Wishing you a Diwali filled with joy,</span><br>
+                <span class="line2">prosperity, and sparkling moments.</span><br>
+                <span class="line3">May the festival of lights brighten your life</span><br>
+                <span class="line4">and bring you happiness.</span>
+            </h3>
+        </div>
+    </div>
+    <div class="container hidden" id="diwaliContainer">
+    <!-- Left top hanging diyas -->
+    <div class="hanging-diyas left">
+        <div class="diya"></div>
+    </div>
+
+    <!-- Right top hanging diyas -->
+    <div class="hanging-diyas right">
+        <div class="diya"></div>
+    </div>
+
+    <div id="light" class="light"></div>
+</div>
+<audio id="backgroundMusic" preload="auto" muted>
+    <source src="audio/audio.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+    
+    <script src="JS/script.js"></script>
+</body>
+</html>

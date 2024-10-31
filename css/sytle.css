@@ -1,0 +1,183 @@
+/* Prevent scrolling */
+html, body {
+    overflow: hidden; /* Hide scrollbars */
+    margin: 0; /* Ensure there's no margin */
+    padding: 0; /* Ensure there's no padding */
+    height: 100%; /* Ensure the body takes the full height */
+}
+
+/* Video container for the background */
+.video-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Background image that will appear after the video fades out */
+.video-container.show-background {
+    background-image: url('../Images/image1.jpg');
+    opacity: 1;
+    animation: fadeInImage 3s ease-in-out;
+}
+
+/* Video fade out effect */
+#backgroundVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+/* When fading out */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Overlay for year on background image */
+.year-background {
+    position: fixed;
+    top: 20%; /* Adjust as needed to place it at the top middle */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1.5s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8em; /* Adjust font size as needed */
+    color: goldenrod; /* Text color */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
+}
+
+/* Show the year when the background appears */
+.video-container.show-background .year-background {
+    opacity: 1; /* Show when background is visible */
+    transition: opacity 1.5s ease-in-out; /* Fade in */
+}
+
+/* Overlay for main text on the video */
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    opacity: 1;
+    animation: fadeInText 7s forwards, shrinkText 2s forwards;
+}
+
+/* Text styling for "HAPPY DIWALI" */
+.overlay h1 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 3em;
+    color: whitesmoke;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    font-weight: 700; 
+    text-transform: uppercase;
+    margin: 0;
+    transition: font-size 5s ease-in-out;
+}
+
+/* Keyframes for text animations */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shrinkText {
+    0% {
+        font-size: 4em;
+    }
+    100% {
+        font-size: 2em; /* Final size of the text after shrinking */
+    }
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Initially hide overlay1 */
+.overlay1 {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.overlay1.show {
+    opacity: 1;
+    visibility: visible;
+    animation: typewriter 5s steps(40) 1s 1 normal both; /* Adjusted duration for full text */
+}
+
+/* Text styling for the secondary text */
+.overlay1 h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5em;
+    color: orange;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white; /* Cursor */
+}
+
+/* Typewriter effect */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Cursor blink effect */
+@keyframes blinkCursor {
+    0% {
+        border-right-color: white;
+    }
+    100% {
+        border-right-color: transparent;
+    }
+}
+#unmuteButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2; /* Ensure it is above other elements */
+}
